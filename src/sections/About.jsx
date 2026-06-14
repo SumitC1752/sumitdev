@@ -45,22 +45,16 @@ const About = () => {
                                 <span className='font-serif italic font-normal text-white'> one component at a time.</span>
                             </h2>
                             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
-
                                 <p>
-                                    I’m Sumit Anarase, a passionate full-stack developer focused on building scalable web applications that help businesses grow and create a strong digital presence.
+                                    I'm Sumit Anarase, a full-stack developer who builds fast, scalable websites and mobile apps. I've delivered production websites for clients across industrial manufacturing, government, and healthcare sectors, along with a mobile app published on the Play Store and App Store.
                                 </p>
-
                                 <p>
-                                    With hands-on experience in modern technologies like React, Node.js, and databases, I write well-structured, maintainable, and high-performance code. I aim to deliver solutions that are efficient, user-friendly, and impactful.
-                                </p>
-
-                                <p>
-                                    I enjoy collaborating with clients and teams to turn ideas into real-world products. Constantly learning and adapting, I stay updated with the latest technologies to build innovative and future-ready solutions.
+                                    I work closely with AI tools (Claude, Cursor) to ship high-quality code faster — without cutting corners.
                                 </p>
                             </div>
                             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
                                 <p className="text-lg font-medium italic text-foreground">
-                                    " My mission is to deliver impactful digital solutions through well-structured, scalable, and performance-driven development, helping businesses achieve long-term success in the digital world."
+                                    "My mission is to deliver impactful digital solutions through well-structured, scalable, and performance-driven development, helping businesses achieve long-term success in the digital world."
                                 </p>
                             </div>
                         </div>

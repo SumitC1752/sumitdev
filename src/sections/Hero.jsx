@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../components/Button'
-import { ArrowRight, Download, icons, ChevronDown } from 'lucide-react'
+import { ArrowRight, Download, ChevronDown } from 'lucide-react'
 import { AnimatedBorderButton } from '../components/AnimatedBorderButton'
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
@@ -40,43 +40,9 @@ const downloadCV = (e) => {
 };
 
 const skills = [
-    "C",
-    "C++",
-    "Java",
-    "Python",
-    "JavaScript",
-
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "JavaScript (ES6+)",
-    "React.js",
-    "Next.js",
-
-    "Node.js",
-    "Express.js",
-    "REST API Development",
-
-    "MongoDB",
-    "MySQL",
-
-    "Redux",
-    "Jest",
-
-    "WordPress",
-    "Shopify",
-    "Framer",
-    "Webflow",
-
-    "Cursor",
-    "Claude",
-    "GitHub Copilot",
-    "Antigravity",
-
-    "Git",
-    "GitHub",
-
-
+    "React.js", "Next.js", "TypeScript", "Tailwind CSS",
+    "Node.js", "Express.js", "React Native", "Supabase",
+    "MongoDB", "Git", "GitHub", "Cursor", "Claude",
 ];
 const Hero = () => {
     return (
@@ -129,7 +95,7 @@ const Hero = () => {
                                     </span>
                                 </h1>
                                 <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200'>
-                                    I'm Sumit Anarase, a passionate developer with expertise in React and backend systems, creating high-quality, user-focused applications that users love for their speed and experience.
+                                    I'm Sumit Anarase — a full-stack developer specializing in React, Next.js & React Native. I build production-ready websites and mobile apps, available on the Play Store and App Store.
                                 </p>
                             </div>
                             {/* CTA */}
@@ -190,8 +156,7 @@ const Hero = () => {
 
                                     {/* state badge */}
                                     <div className='absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500'>
-                                        <div className='text-2xl font-bold text-primary'>1+</div>
-                                        <div className='text-xs text-muted-foreground'>Year Exp.</div>
+                                        <div className='text-sm font-bold text-primary'>Shipped Projects</div>
                                     </div>
 
                                 </div>
