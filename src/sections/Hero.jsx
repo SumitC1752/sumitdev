@@ -255,18 +255,6 @@ const Hero = () => {
                                 </Button>
                             </a>
                             <AnimatedBorderButton
-                                onClick={() =>
-                                    window.open(
-                                        "https://wa.me/919209214599?text=Hi%20Sumit%2C%20I%27d%20like%20to%20book%20a%20free%2015-min%20call%20about%20a%20project.",
-                                        "_blank",
-                                        "noopener,noreferrer"
-                                    )
-                                }
-                                className="w-full sm:w-auto justify-center"
-                            >
-                                Book a free call
-                            </AnimatedBorderButton>
-                            <AnimatedBorderButton
                                 onClick={downloadCV}
                                 className="w-full sm:w-auto justify-center"
                             >
