@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-    --color-background: #0f1418;
+    --color-background: #0c1116;
     --color-foreground: #f0f2f5;
 
     --color-card: #141a1f;
 
-    --color-primary: #20b2a6;
+    --color-primary: #2bbfb3;
     --color-primary-foreground: #ffffff;
 
     --color-secondary: #1f2830;
-    --color-secondary-foreground: #20b2a6;
+    --color-secondary-foreground: #2bbfb3;
 
     --color-muted: #252e37;
-    --color-muted-foreground: #7a8491;
+    --color-muted-foreground: #9aa4b2;
 
     --color-border: #242b32;
 
@@ -21,11 +21,19 @@
 
     --color-highlight: #f5a623;
     --color-surface: #1a2329;
+
+    --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Playfair Display", ui-serif, Georgia, serif;
 }
 
 @layer base {
     html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
+    }
+
+    html.lenis,
+    html.lenis body {
+        height: auto;
     }
 
     button {
@@ -35,34 +43,60 @@
     body {
         background-color: var(--color-background);
         color: var(--color-foreground);
-        font-family: "Inter", sans-serif;
+        font-family: var(--font-sans);
     }
 
     .font-serif {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
     }
 }
 
 @layer components {
     .glass {
-        background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
-        backdrop-filter: blur(16px);
-        border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+        background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+        backdrop-filter: blur(18px) saturate(1.15);
+        -webkit-backdrop-filter: blur(18px) saturate(1.15);
+        border: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+        box-shadow:
+            0 1px 0 color-mix(in srgb, white 6%, transparent) inset,
+            0 8px 32px rgba(0, 0, 0, 0.18);
     }
 
     .glass-strong {
-        background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
-        backdrop-filter: blur(24px);
-        border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+        background-color: color-mix(in srgb, var(--color-surface) 82%, transparent);
+        backdrop-filter: blur(24px) saturate(1.2);
+        -webkit-backdrop-filter: blur(24px) saturate(1.2);
+        border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+        box-shadow:
+            0 1px 0 color-mix(in srgb, white 8%, transparent) inset,
+            0 12px 40px rgba(0, 0, 0, 0.28);
     }
 
     .glow-text {
-        text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
+        text-shadow: 0 0 28px color-mix(in srgb, var(--color-primary) 40%, transparent);
     }
 
     .glow-border {
-        box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent),
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--color-primary) 18%, transparent),
+            0 0 20px color-mix(in srgb, var(--color-primary) 14%, transparent),
             inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+    }
+
+    .depth-shadow {
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.35),
+            0 0 0 1px color-mix(in srgb, var(--color-primary) 10%, transparent);
+    }
+
+    .depth-shadow-hover {
+        transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+    }
+
+    .depth-shadow-hover:hover {
+        box-shadow:
+            0 18px 48px rgba(0, 0, 0, 0.4),
+            0 0 28px color-mix(in srgb, var(--color-primary) 16%, transparent);
     }
 }
 
@@ -71,7 +105,7 @@
         from {
             opacity: 0;
             transform: translateY(20px);
-            filter: blur(10px);
+            filter: blur(8px);
         }
 
         to {
@@ -82,7 +116,6 @@
     }
 
     @keyframes slow-drift {
-
         0%,
         100% {
             transform: translate(0, 0);
@@ -102,7 +135,6 @@
     }
 
     @keyframes float {
-
         0%,
         100% {
             transform: translateY(0);
@@ -133,6 +165,32 @@
 
     .animate-marquee {
         animation: marquee 30s linear infinite;
+    }
+
+    .animate-marquee-slow {
+        animation: marquee 45s linear infinite;
+    }
+
+    @keyframes orbit-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-orbit-spin {
+        animation: orbit-spin 28s linear infinite;
+    }
+
+    .animate-orbit-spin-slow {
+        animation: orbit-spin 40s linear infinite;
+    }
+
+    .animate-orbit-counter {
+        animation: orbit-spin 28s linear infinite reverse;
     }
 
     .animation-delay-100 {
@@ -180,11 +238,126 @@
     .animated-border:hover {
         background-color: color-mix(in srgb, #26c4b8 15%, transparent);
         backdrop-filter: blur(16px);
-        box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+        box-shadow: 0 0 16px color-mix(in srgb, #26c4b8 15%, transparent);
     }
 
-    .timeline-glow {
-        box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
-            0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    @keyframes float-3d {
+        0%,
+        100% {
+            transform: translateY(0) translateZ(24px) rotateX(4deg) rotateY(-8deg);
+        }
+
+        50% {
+            transform: translateY(-16px) translateZ(48px) rotateX(-4deg) rotateY(8deg);
+        }
+    }
+
+    @keyframes float-3d-alt {
+        0%,
+        100% {
+            transform: translateY(0) translateZ(16px) rotateX(-5deg) rotateY(8deg);
+        }
+
+        50% {
+            transform: translateY(-20px) translateZ(40px) rotateX(5deg) rotateY(-6deg);
+        }
+    }
+
+    @keyframes spin-slow-3d {
+        from {
+            transform: rotateX(60deg) rotateZ(0deg);
+        }
+
+        to {
+            transform: rotateX(60deg) rotateZ(360deg);
+        }
+    }
+
+    .animate-float-3d {
+        animation: float-3d 5s ease-in-out infinite;
+    }
+
+    .animate-float-3d-alt {
+        animation: float-3d-alt 6.5s ease-in-out infinite;
+    }
+
+    .animate-spin-slow-3d {
+        animation: spin-slow-3d 18s linear infinite;
+    }
+
+    .perspective-hero {
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+
+    .preserve-3d {
+        transform-style: preserve-3d;
+    }
+
+    @keyframes spin-ring-3d {
+        from {
+            transform: translateZ(-60px) rotateX(58deg) rotateZ(0deg);
+        }
+
+        to {
+            transform: translateZ(-60px) rotateX(58deg) rotateZ(360deg);
+        }
+    }
+
+    @keyframes spin-ring-3d-inner {
+        from {
+            transform: translateZ(-28px) rotateX(58deg) rotateZ(0deg);
+        }
+
+        to {
+            transform: translateZ(-28px) rotateX(58deg) rotateZ(-360deg);
+        }
+    }
+
+    .animate-spin-ring-3d {
+        animation: spin-ring-3d 42s linear infinite;
+    }
+
+    .animate-spin-ring-3d-inner {
+        animation: spin-ring-3d-inner 56s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .will-change-transform,
+        .animate-float-3d,
+        .animate-float-3d-alt,
+        .animate-spin-slow-3d,
+        .animate-spin-ring-3d,
+        .animate-spin-ring-3d-inner,
+        .animate-marquee,
+        .animate-marquee-slow {
+            transform: none !important;
+            animation: none !important;
+        }
+    }
+
+    @keyframes draw-line {
+        from {
+            transform: scaleX(0);
+        }
+
+        to {
+            transform: scaleX(1);
+        }
+    }
+
+    .animate-draw-line {
+        animation: draw-line 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+    }
+
+    .hero-watermark {
+        font-size: clamp(6rem, 28vw, 22rem);
+        white-space: nowrap;
+    }
+
+    .hero-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        background-size: 180px;
+        mix-blend-mode: overlay;
     }
 }
